@@ -37,10 +37,10 @@ If you then access "/users/contact", the `#menu` div will look like:
 
     <div id="menu">
       <ul id="menu-list">
-        <li><span><span><a href="/">Go Home!</a></span></span></li>
-        <li><span><span><a href="/about">About</a></span></span></li>
-        <li><span><span><a href="/users">Users</a></span></span></li>
-        <li class="active"><span><span><a href="/users/contact">Contact</a></span></span></li>
+        <li class="home"><span><span><a href="/">Go Home!</a></span></span></li>
+        <li class="about"><span><span><a href="/about">About</a></span></span></li>
+        <li class="users"><span><span><a href="/users">Users</a></span></span></li>
+        <li class="contact active"><span><span><a href="/users/contact">Contact</a></span></span></li>
       </ul>
     </div>
 

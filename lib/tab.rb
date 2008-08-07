@@ -10,9 +10,9 @@ module TabFu
     end
   
     def method_missing(tab, name, options = {})
-      active_class = (tab.to_s == current_tab.to_s) ? "class=\"active\" " : ""
+      active_class = (tab.to_s == current_tab.to_s) ? " active" : ""
       text = active_class.blank? ? @context.link_to(name, options) : name
-      "<li #{active_class}id=\"nav_#{tab.to_s}\"><span><span>#{text}</span></span></li>"
+      "<li class=\"#{name}#{active_class}\"><span><span>#{text}</span></span></li>"
     end
   end
 end

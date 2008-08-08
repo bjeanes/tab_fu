@@ -1,5 +1,7 @@
-TabFu
+TabFu 0.1.0
 =====
+
+**Note**: the master branch is not stable and possibly broken. I will do my best to tag stable releases, so use those. `v0.1.0` seems to be invalid ref and I can't delete it so use `v.1.0`
 
 TabFu is a Ruby on Rails plug-in designed to ease the management of a 
 tabbed interface such as an admin panel. It allows you to programmatically

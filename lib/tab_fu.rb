@@ -2,21 +2,31 @@
 
 module TabFu
   def self.included(klass)
-    RAILS_DEFAULT_LOGGER.debug "TabFu was included"
     ApplicationHelper.send(:include, TabFu::HelperMethods)
     
-    klass.module_eval do
-      RAILS_DEFAULT_LOGGER.debug "Defining controller `tab` method"
-      def self.tab(name, opts = {})
+    klass.module_eval do      
+      # if passing more than one tab, must be explicit with {}
+      # these should be merged...
+      def self.tab(name, opts = {}) 
         before_filter(opts) do |c|
-          c.instance_variable_set(:@_current_tab, name)
+          c.send :tab, *name
         end
       end
     end
   end
   
   protected
-  def tab(name)
-    @_current_tab = name
+  def tab(*args)
+    @__current_tab ||= {}
+    
+    options = args.extract_options!
+    if args.empty?
+      args.each_pair do |list, name|
+        @__current_tab[list] = name
+      end
+    else
+      @__current_tab['__default'] = args.first
+    end
+    nil
   end
 end

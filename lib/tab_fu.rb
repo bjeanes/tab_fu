@@ -22,7 +22,7 @@ module TabFu
     options = args.extract_options!
     if args.empty?
       args.each_pair do |list, name|
-        @__current_tab[list] = name
+        @__current_tab[list.to_s] = name
       end
     else
       @__current_tab['__default'] = args.first

@@ -7,9 +7,9 @@ module TabFu
     klass.module_eval do      
       # if passing more than one tab, must be explicit with {}
       # these arguments should be merged... somehow...
-      def self.tab(name, opts = {}) 
-        before_filter(opts) do |c|
-          c.send :tab, *name
+      def self.tab(name, opts, *filter_opts) 
+        before_filter(*filter_opts) do |c|
+          c.send :tab, *[name, opts]
         end
       end
     end
@@ -20,13 +20,12 @@ module TabFu
     @__current_tab ||= {}
     
     options = args.extract_options!
-    if args.empty?
-      args.each_pair do |list, name|
-        @__current_tab[list.to_s] = name
-      end
-    else
+    unless args.empty?
       @__current_tab['__default'] = args.first
     end
-    nil
+    
+    options.each_pair do |list, name|
+      @__current_tab[list.to_s] = name
+    end
   end
 end

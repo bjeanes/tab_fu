@@ -50,6 +50,7 @@ To Do
   - Lists with different `id`s will be treated independently. Choosing the current
     tab will be with a syntax similar to `tab :list_id => :tab_identifier` with the 
     option to specify more than one at once
+  - Customize list-item html (i.e. choose not to have `<span><span>` junk)
   - Tests/Specs! (for now this plug-in is just pulling code out from an existing project)
   - RDocs
 

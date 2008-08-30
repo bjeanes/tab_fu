@@ -7,7 +7,7 @@ module TabFu
     klass.module_eval do      
       # if passing more than one tab, must be explicit with {}
       # these arguments should be merged... somehow...
-      def self.tab(name, opts, *filter_opts) 
+      def self.tab(name, opts={}, *filter_opts) 
         before_filter(*filter_opts) do |c|
           c.send :tab, *[name, opts]
         end

@@ -14,6 +14,8 @@ module TabFu
     private
     def current_tab
       @context.instance_variable_get('@__current_tab')[@list_id]
+    rescue
+      nil
     end
   end
 end

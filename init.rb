@@ -1,3 +1,6 @@
 require 'tab_fu'
-require 'tab'
-require 'helpers'
+require 'tab_fu_list_helper'
+require 'tab_fu_helpers'
+
+ActionController::Base.send(:include, TabFu)
+

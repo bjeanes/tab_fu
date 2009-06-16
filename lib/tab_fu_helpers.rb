@@ -3,10 +3,11 @@ module TabFu
 
     include TabFu::ListHelper  
 
-    def tabs(id = '__default')
+    def tabs(options = {})
+      id = options.delete(:id) || '__default'
       html_id = id.nil? || id == '__default' ? '' : " id=\"#{id}\""
       concat("<ul#{html_id}>")
-      yield(List.new(self, id))
+      yield(List.new(self, id, options))
       concat('</ul>')
     end
 
